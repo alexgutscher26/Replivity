@@ -34,6 +34,9 @@ const buttonVariants = cva(
   }
 )
 
+/**
+ * Renders a button component with various variants and sizes.
+ */
 function Button({
   className,
   variant,
