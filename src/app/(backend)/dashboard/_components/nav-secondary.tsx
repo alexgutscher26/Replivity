@@ -1,3 +1,8 @@
+import { useState, type ComponentPropsWithoutRef } from "react";
+
+import { type LucideIcon } from "lucide-react";
+import Link from "next/link";
+
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -5,22 +10,22 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { type LucideIcon } from "lucide-react";
-import Link from "next/link";
-import { useState, type ComponentPropsWithoutRef } from "react";
+
 import SupportDialog from "./support-dialog";
+
+type NavItem = {
+  title: string;
+  url: string;
+  icon: LucideIcon;
+  dialog?: boolean;
+};
 
 export default function NavSecondary({
   items,
   ...props
 }: {
-  items: {
-    title: string;
-    url: string;
-    icon: LucideIcon;
-    dialog?: boolean;
-  }[];
-} & ComponentPropsWithoutRef<typeof SidebarGroup>) {
+  items: NavItem[];
+} & ComponentPropsWithoutRef<typeof SidebarGroup>): JSX.Element {
   const [supportOpen, setSupportOpen] = useState(false);
 
   return (

@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 export function RevenueOverview() {
   const [data] = api.billings.getRevenueOverview.useSuspenseQuery();

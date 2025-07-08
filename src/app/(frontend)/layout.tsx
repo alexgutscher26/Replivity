@@ -1,12 +1,16 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { SignedIn, SignedOut } from "@daveyplate/better-auth-ui";
+import { Command, Loader2, Menu, X } from "lucide-react";
+import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
-import { SignedIn, SignedOut } from "@daveyplate/better-auth-ui";
-import { Command, Loader2, Menu, X } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
+
 import FooterSection from "./_components/footer-section";
 
 const menuItems = [

@@ -1,3 +1,6 @@
+import { and, count, eq, gte, lte } from "drizzle-orm";
+import { z } from "zod";
+
 import {
   createTRPCRouter,
   protectedProcedure,
@@ -5,8 +8,6 @@ import {
 } from "@/server/api/trpc";
 import { type User } from "@/server/auth/types";
 import { user } from "@/server/db/schema/auth-schema";
-import { and, count, eq, gte, lte } from "drizzle-orm";
-import { z } from "zod";
 
 export const userRouter = createTRPCRouter({
   total: protectedProcedure.query(async ({ ctx }) => {

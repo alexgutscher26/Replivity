@@ -1,5 +1,8 @@
 "use client";
 
+import { ChevronRight, type LucideIcon } from "lucide-react";
+import Link from "next/link";
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -16,23 +19,19 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
-import { ChevronRight, type LucideIcon } from "lucide-react";
-import Link from "next/link";
 
-export default function NavMain({
-  items,
-}: {
-  items: {
+type NavItem = {
+  title: string;
+  url: string;
+  icon: LucideIcon;
+  isActive?: boolean;
+  items?: Array<{
     title: string;
     url: string;
-    icon: LucideIcon;
-    isActive?: boolean;
-    items?: {
-      title: string;
-      url: string;
-    }[];
-  }[];
-}) {
+  }>;
+};
+
+export default function NavMain({ items }: { items: NavItem[] }): JSX.Element {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>

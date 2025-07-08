@@ -1,15 +1,19 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { useQueryClient } from "@tanstack/react-query";
+import { Loader2, Unlock } from "lucide-react";
+import { toast } from "sonner";
 
 import { type ActionMenuProps } from "@/app/(backend)/dashboard/users/_components/action-menu";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/server/auth/client";
-import { type User } from "@/server/auth/types";
-import { useQueryClient } from "@tanstack/react-query";
-import { Loader2, Unlock } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
-export default function UnbanUsersAction<TData>({
+import { type User } from "./users-table";
+
+export default function UnbanUsersAction<TData extends User>({
   table,
   users,
 }: ActionMenuProps<TData>) {
@@ -21,7 +25,7 @@ export default function UnbanUsersAction<TData>({
 
     try {
       await Promise.all(
-        users.map((user: User) =>
+        users.map((user) =>
           authClient.admin.unbanUser({
             userId: user.id,
             fetchOptions: {

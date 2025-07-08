@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { api, HydrateClient } from "@/trpc/server";
+
 import ContentSection from "./_components/content-section";
 import FeaturesSection from "./_components/feature-section";
 import HeroSection from "./_components/hero-section";

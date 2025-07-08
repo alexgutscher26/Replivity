@@ -1,7 +1,9 @@
-import { ourFileRouter } from "@/app/api/uploadthing/core";
-import { api } from "@/trpc/server";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { type NextRequest } from "next/server";
 import { createRouteHandler } from "uploadthing/next";
+
+import { ourFileRouter } from "@/app/api/uploadthing/core";
+import { api } from "@/trpc/server";
 
 async function createHandlerWithToken() {
   const token = (await api.settings.storageProviderKey()) ?? undefined;

@@ -1,13 +1,17 @@
+import { type JSX } from "react";
+
+import { redirect } from "next/navigation";
+
 import { Separator } from "@/components/ui/separator";
 import { getSession } from "@/server/utils";
-import { redirect } from "next/navigation";
+
 import FacebookUsage from "../_components/facebook-usage";
 import LinkedinUsage from "../_components/linkedin-usage";
 import TotalUsage from "../_components/total-usage";
 import TwitterUsage from "../_components/twitter-usage";
 import { UsageOverview } from "../_components/usage-overview";
 
-export default async function AnalyticsPage() {
+export default async function AnalyticsPage(): Promise<JSX.Element> {
   const session = await getSession();
 
   if (session?.user?.role !== "admin") {

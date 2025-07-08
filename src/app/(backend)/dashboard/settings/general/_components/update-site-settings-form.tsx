@@ -1,4 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { type ChangeEvent, useEffect, useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -18,11 +26,6 @@ import {
   type SiteSettingsFormValues,
 } from "@/utils/schema/settings";
 import { useUploadThing } from "@/utils/uploadthing";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import { type ChangeEvent, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 export function UpdateSiteSettingsForm() {
   const utils = api.useUtils();

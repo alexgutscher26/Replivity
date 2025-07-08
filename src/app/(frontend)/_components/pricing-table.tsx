@@ -1,4 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { Check, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,9 +16,6 @@ import {
 } from "@/components/ui/card";
 import { useSession } from "@/hooks/use-auth-hooks";
 import { api } from "@/trpc/react";
-import { Check, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 export default function PricingTable() {
   const router = useRouter();

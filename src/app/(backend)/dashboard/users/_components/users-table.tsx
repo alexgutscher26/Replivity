@@ -1,18 +1,7 @@
 "use client";
 
-import { DataTablePagination } from "@/app/(backend)/dashboard/_components/data-table-pagination";
-import { columns } from "@/app/(backend)/dashboard/users/_components/columns";
-import { DataTableToolbar } from "@/app/(backend)/dashboard/users/_components/toolbar";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { authClient } from "@/server/auth/client";
-import { type User } from "@/server/auth/types";
+import { useState } from "react";
+
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import {
   type ColumnFiltersState,
@@ -29,14 +18,39 @@ import {
 } from "@tanstack/react-table";
 import { useDebounce } from "@uidotdev/usehooks";
 import { Loader2 } from "lucide-react";
-import { useState } from "react";
 
-export interface TableMeta {
+import { DataTablePagination } from "@/app/(backend)/dashboard/_components/data-table-pagination";
+import { columns } from "@/app/(backend)/dashboard/users/_components/columns";
+import { DataTableToolbar } from "@/app/(backend)/dashboard/users/_components/toolbar";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { authClient } from "@/server/auth/client";
+import { type User as BaseUser } from "@/server/auth/types";
+
+export type User = BaseUser & {
+  banned: boolean | null;
+  role?: string | null;
+  banReason?: string | null;
+  banExpires?: Date | null;
+  emailVerified?: boolean | null;
+};
+
+export type TableMeta = {
   searchValue: string;
   setSearchValue: (value: string) => void;
-}
+};
 
-export default function UsersTable({ totalUsers }: { totalUsers?: number }) {
+export default function UsersTable({
+  totalUsers,
+}: {
+  totalUsers?: number;
+}): JSX.Element {
   const [searchValue, setSearchValue] = useState("");
   const debouncedSearch = useDebounce(searchValue, 500);
   const [rowSelection, setRowSelection] = useState({});

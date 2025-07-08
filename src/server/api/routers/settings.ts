@@ -1,3 +1,10 @@
+/* eslint-disable no-param-reassign */
+import { TRPCError } from "@trpc/server";
+import { generateText } from "ai";
+import { eq } from "drizzle-orm";
+import { reset, seed } from "drizzle-seed";
+import { Resend } from "resend";
+
 import {
   adminPaymentProcedure,
   adminProcedure,
@@ -27,11 +34,6 @@ import {
   testConnectionSchema,
   webhookForPaymentProviderSchema,
 } from "@/utils/schema/settings";
-import { TRPCError } from "@trpc/server";
-import { generateText } from "ai";
-import { eq } from "drizzle-orm";
-import { reset, seed } from "drizzle-seed";
-import { Resend } from "resend";
 
 export const settingsRouter = createTRPCRouter({
   account: protectedProcedure.query(async ({ ctx }) => {

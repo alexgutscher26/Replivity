@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { authClient } from "@/server/auth/client";
-import { api } from "@/trpc/react";
 import { AuthUIProviderTanstack } from "@daveyplate/better-auth-ui/tanstack";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+import { authClient } from "@/server/auth/client";
+import { api } from "@/trpc/react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();

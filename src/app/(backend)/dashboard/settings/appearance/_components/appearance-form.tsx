@@ -1,4 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useEffect } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTheme } from "next-themes";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,13 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useTheme } from "next-themes";
-import { useEffect } from "react";
 
 const appearanceFormSchema = z.object({
   theme: z.enum(["light", "dark", "system"], {

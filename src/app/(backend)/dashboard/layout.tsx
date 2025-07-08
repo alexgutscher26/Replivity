@@ -1,3 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { type ReactNode } from "react";
+
+import {
+  AuthLoading,
+  RedirectToSignIn,
+  SignedIn,
+} from "@daveyplate/better-auth-ui";
+
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
@@ -5,12 +14,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
-import {
-  AuthLoading,
-  RedirectToSignIn,
-  SignedIn,
-} from "@daveyplate/better-auth-ui";
-import { type ReactNode } from "react";
+
 import AppSidebar from "./_components/app-sidebar";
 import AppSidebarSkeleton from "./_components/app-sidebar-skeleton";
 import BreadcrumbMenu from "./_components/breadcrumb-menu";

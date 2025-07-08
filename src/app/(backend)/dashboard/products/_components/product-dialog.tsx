@@ -1,4 +1,13 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TRPCClientError } from "@trpc/client";
+import { Loader2, Minus, Pencil, PlusCircle } from "lucide-react";
+import { useFieldArray, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -34,19 +43,13 @@ import {
   type ProductType,
   productTypeEnum,
 } from "@/utils/schema/products";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { TRPCClientError } from "@trpc/client";
-import { Loader2, Minus, Pencil, PlusCircle } from "lucide-react";
-import { useState } from "react";
-import { useFieldArray, useForm } from "react-hook-form";
-import { toast } from "sonner";
 
-interface ProductDialogProps {
+type ProductDialogProps = {
   mode: "create" | "edit";
   products?: SelectProduct[];
   trigger?: React.ReactNode;
   onSuccess?: () => void;
-}
+};
 
 export default function ProductDialog({
   mode,

@@ -1,6 +1,8 @@
-import { env } from "@/env";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+
+import { env } from "@/env";
+
 import * as authSchema from "./schema/auth-schema";
 import * as billingSchema from "./schema/billing-schema";
 import * as generationsSchema from "./schema/generations-schema";

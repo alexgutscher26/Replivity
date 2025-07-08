@@ -1,3 +1,14 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { type ComponentPropsWithoutRef } from "react";
+
+import { type Table } from "@tanstack/react-table";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -7,19 +18,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { type Table } from "@tanstack/react-table";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ChevronsLeft,
-  ChevronsRight,
-} from "lucide-react";
-import { type ComponentPropsWithoutRef } from "react";
 
-interface DataTablePaginationProps<TData>
-  extends ComponentPropsWithoutRef<"div"> {
+type DataTablePaginationProps<TData> = {
   table: Table<TData>;
-}
+} & ComponentPropsWithoutRef<"div">;
 
 export function DataTablePagination<TData>({
   className,

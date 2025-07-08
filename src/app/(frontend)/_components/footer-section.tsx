@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { Command, Loader2 } from "lucide-react";
+import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { api } from "@/trpc/react";
-import { Command, Loader2 } from "lucide-react";
-import Link from "next/link";
 
 const links = [
   {

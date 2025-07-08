@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { configStore } from "@/server/auth/config-store";
 import { db } from "@/server/db";
 import { authSettingsSchema } from "@/utils/schema/settings";

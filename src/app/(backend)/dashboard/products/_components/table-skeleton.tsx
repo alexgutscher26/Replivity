@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function TableSkeleton() {
@@ -15,7 +16,7 @@ export function TableSkeleton() {
       {/* Table skeleton */}
       <div className="rounded-md border">
         {/* Header */}
-        <div className="border-b bg-muted/50 p-4">
+        <div className="bg-muted/50 border-b p-4">
           <div className="flex items-center space-x-4">
             <Skeleton className="h-4 w-[20px]" />
             <Skeleton className="h-4 w-[100px]" />

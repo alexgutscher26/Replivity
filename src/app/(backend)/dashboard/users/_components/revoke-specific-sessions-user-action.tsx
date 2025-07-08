@@ -1,4 +1,21 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { formatDistance } from "date-fns";
+import {
+  CalendarClock,
+  Clock,
+  InboxIcon,
+  Laptop,
+  Loader2,
+  RefreshCw,
+  Smartphone,
+} from "lucide-react";
+import { toast } from "sonner";
+import { UAParser } from "ua-parser-js";
 
 import { type ActionMenuProps } from "@/app/(backend)/dashboard/users/_components/action-menu";
 import { Button } from "@/components/ui/button";
@@ -16,20 +33,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useSession } from "@/hooks/use-auth-hooks";
 import { cn } from "@/lib/utils";
 import { authClient } from "@/server/auth/client";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { formatDistance } from "date-fns";
-import {
-  CalendarClock,
-  Clock,
-  InboxIcon,
-  Laptop,
-  Loader2,
-  RefreshCw,
-  Smartphone,
-} from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
-import { UAParser } from "ua-parser-js";
 
 export default function RevokeSpecificSessionsUserAction<TData>({
   table,

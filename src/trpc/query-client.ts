@@ -1,7 +1,10 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import {
   defaultShouldDehydrateQuery,
   QueryClient,
 } from "@tanstack/react-query";
+// eslint-disable-next-line import/no-named-as-default
 import SuperJSON from "superjson";
 
 export const createQueryClient = () =>

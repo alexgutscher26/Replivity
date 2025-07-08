@@ -1,7 +1,11 @@
-import { api } from "@/trpc/server";
-import { TRPCError } from "@trpc/server";
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import crypto from "crypto";
+
+import { TRPCError } from "@trpc/server";
 import { NextResponse, type NextRequest } from "next/server";
+
+import { api } from "@/trpc/server";
 
 // PayPal webhook event types
 type PayPalWebhookEvent = {

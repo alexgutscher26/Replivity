@@ -1,16 +1,18 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
-  items: {
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+type SidebarNavProps = {
+  items: Array<{
     href: string;
     title: string;
-  }[];
-}
+  }>;
+} & React.HTMLAttributes<HTMLElement>;
 
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   const pathname = usePathname();
@@ -18,7 +20,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
   return (
     <nav
       className={cn(
-        "flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1",
+        "flex space-x-2 lg:flex-col lg:space-y-1 lg:space-x-0",
         className,
       )}
       {...props}

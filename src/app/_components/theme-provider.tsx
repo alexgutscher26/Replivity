@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useEffect, useState, type ComponentProps } from "react";
+
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export function ThemeProvider({
   children,

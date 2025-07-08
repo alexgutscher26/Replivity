@@ -1,5 +1,10 @@
 "use client";
 
+import { useState } from "react";
+
+import { type Row, type Table } from "@tanstack/react-table";
+import { MoreHorizontal } from "lucide-react";
+
 import CopyIdAction from "@/app/(backend)/dashboard/_components/copy-id-action";
 import BanUsersAction from "@/app/(backend)/dashboard/users/_components/ban-users-action";
 import ChangeUserRoleAction from "@/app/(backend)/dashboard/users/_components/change-user-role-action";
@@ -15,34 +20,34 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { type User } from "@/server/auth/types";
-import { type Row, type Table } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
-import { useState } from "react";
 
-interface BaseActionMenuProps<TData> {
+import { type User } from "./users-table";
+
+type BaseActionMenuProps<TData> = {
   table: Table<TData>;
   row?: Row<TData>;
   source?: "cell" | "header";
-}
+};
 
-export interface ActionMenuProps<TData> extends BaseActionMenuProps<TData> {
+export type ActionMenuProps<TData> = BaseActionMenuProps<TData> & {
   users: User[];
   onSuccess?: () => void; // callback to close dropdown
-}
+};
 
-export default function ActionMenu<TData>({
+export default function ActionMenu<TData extends User>({
   table,
   row,
   source,
-}: BaseActionMenuProps<TData>) {
+}: BaseActionMenuProps<TData>): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Get users data based on source
-  const users =
-    source === "cell"
-      ? ([row?.original] as User[])
-      : table?.getSelectedRowModel().rows.map((row) => row.original as User);
+  const users: User[] = (() => {
+    if (source === "cell") {
+      return row?.original ? [row.original] : [];
+    }
+    return table?.getSelectedRowModel().rows.map((r) => r.original) ?? [];
+  })();
 
   return (
     <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>

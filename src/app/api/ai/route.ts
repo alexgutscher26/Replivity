@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { type NextRequest } from "next/server";
+
 import { auth } from "@/server/auth";
 import { api } from "@/trpc/server";
 import { type GenerationsType } from "@/utils/schema/generations";
-import { type NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {

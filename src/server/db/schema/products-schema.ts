@@ -1,4 +1,3 @@
-import { createTable } from "@/server/db/config";
 import {
   boolean,
   integer,
@@ -8,6 +7,8 @@ import {
   timestamp,
   uuid,
 } from "drizzle-orm/pg-core";
+
+import { createTable } from "@/server/db/config";
 
 export const products = createTable("products", {
   id: uuid("id").primaryKey().defaultRandom(),

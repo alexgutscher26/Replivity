@@ -1,3 +1,5 @@
+import { type ComponentProps } from "react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -8,11 +10,10 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
-import { type ComponentProps } from "react";
 
 export default function AppSidebarSkeleton({
   ...props
-}: ComponentProps<typeof Sidebar>) {
+}: ComponentProps<typeof Sidebar>): JSX.Element {
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>

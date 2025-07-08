@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { ActiveSessionUserCardSettingsForm } from "@/app/(backend)/dashboard/settings/profile/_components/active-session-user-card-settings";
 import { DeleteAccountCardSettingsForm } from "@/app/(backend)/dashboard/settings/profile/_components/delete-account-card-settings";
 import { OtherSessionsUserCardSettingsForm } from "@/app/(backend)/dashboard/settings/profile/_components/other-sessions-user-card-settings";
@@ -11,7 +12,7 @@ export default async function ProfileSettingsPage() {
     <div className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">Profile</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Update your profile information.
         </p>
       </div>

@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { CircleDollarSign } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { CircleDollarSign } from "lucide-react";
 
 export default function PaidUsers() {
   const [data] = api.billings.getPaidUsers.useSuspenseQuery();

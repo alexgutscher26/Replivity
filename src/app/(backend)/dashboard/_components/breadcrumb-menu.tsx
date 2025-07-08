@@ -1,5 +1,10 @@
 "use client";
 
+import { Fragment, useState } from "react";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -27,9 +32,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Fragment, useState } from "react";
 
 const ITEMS_TO_DISPLAY = 3;
 
@@ -40,7 +42,7 @@ const formatPath = (path: string) => {
     .join(" ");
 };
 
-export default function BreadcrumbMenu() {
+export default function BreadcrumbMenu(): JSX.Element {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const pathname = usePathname();

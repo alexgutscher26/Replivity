@@ -1,4 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -18,10 +24,6 @@ import {
   type UpdateUserPasswordSettingsFormValues,
   UpdateUserPasswordSettingsSchema,
 } from "@/utils/schema/settings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 export function UpdateUserPasswordSettingsForm() {
   const { user, isPending, refetch, isError, error } = useSession();

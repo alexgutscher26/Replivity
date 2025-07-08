@@ -3,7 +3,7 @@
 import { type User } from "@/server/auth/types";
 import { type SelectProduct } from "@/server/db/schema/products-schema";
 
-export interface PaymentProvider {
+export type PaymentProvider = {
   createCustomer(params: { email: string; name?: string }): Promise<{
     id: string;
   }>;
@@ -115,23 +115,23 @@ export interface PaymentProvider {
   }): Promise<{
     id: string;
   }>;
-}
+};
 
-export interface PaymentCustomer {
+export type PaymentCustomer = {
   id: string;
   email: string;
   name?: string;
-}
+};
 
-export interface PaymentSubscription {
+export type PaymentSubscription = {
   id: string;
   status: string;
   customerId: string;
   priceId: string;
   currentPeriodEnd: Date;
-}
+};
 
-export interface CheckoutSession {
+export type CheckoutSession = {
   id: string;
   url: string;
-}
+};

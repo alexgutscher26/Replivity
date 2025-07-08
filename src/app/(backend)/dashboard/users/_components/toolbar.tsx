@@ -1,4 +1,10 @@
+/* eslint-disable import/no-duplicates */
 "use client";
+
+import { type ChangeEvent } from "react";
+
+import { type Table } from "@tanstack/react-table";
+import { X } from "lucide-react";
 
 import { DataTableViewOptions } from "@/app/(backend)/dashboard/_components/data-table-column-toggle";
 import { DataTableFacetedFilter } from "@/app/(backend)/dashboard/_components/data-table-faceted-filter";
@@ -7,16 +13,16 @@ import CreateUserDialog from "@/app/(backend)/dashboard/users/_components/create
 import { type TableMeta } from "@/app/(backend)/dashboard/users/_components/users-table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { type Table } from "@tanstack/react-table";
-import { X } from "lucide-react";
 
-interface DataTableToolbarProps<TData> {
+import { type User } from "./users-table";
+
+type DataTableToolbarProps<TData extends User> = {
   table: Table<TData>;
-}
+};
 
-export function DataTableToolbar<TData>({
+export function DataTableToolbar<TData extends User>({
   table,
-}: DataTableToolbarProps<TData>) {
+}: DataTableToolbarProps<TData>): JSX.Element {
   const isFiltered = table.getState().columnFilters.length > 0;
   const meta = table.options.meta as TableMeta;
 
@@ -26,7 +32,7 @@ export function DataTableToolbar<TData>({
         <Input
           placeholder="Filter tasks..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
           className="h-8 max-w-xs"
@@ -60,7 +66,9 @@ export function DataTableToolbar<TData>({
           className="h-8 max-w-xs"
           placeholder="Search users..."
           value={meta.searchValue}
-          onChange={(e) => meta.setSearchValue(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            meta.setSearchValue(e.target.value)
+          }
         />
         <CreateUserDialog />
         <DataTableViewOptions table={table} />

@@ -1,14 +1,15 @@
 "use client";
 
+import { Linkedin } from "lucide-react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { Linkedin } from "lucide-react";
 
 export default function LinkedinUsage({
   isSiteWide = false,
 }: {
   isSiteWide?: boolean;
-}) {
+}): JSX.Element {
   const [data] = api.generations.getLinkedinStats.useSuspenseQuery({
     isSiteWide,
   });

@@ -1,14 +1,15 @@
 "use client";
 
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function NavLogout() {
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+
+export default function NavLogout(): JSX.Element {
   const router = useRouter();
 
-  const handleClick = async () => {
-    router.push("/auth/sign-out");
+  const handleClick = (): void => {
+    void router.push("/auth/sign-out");
   };
 
   return (

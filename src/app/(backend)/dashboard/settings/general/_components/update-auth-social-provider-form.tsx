@@ -1,5 +1,12 @@
 "use client";
 
+import { useCallback, useEffect } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ChevronDown, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -24,11 +31,6 @@ import {
   authSettingsSchema,
   SOCIAL_PROVIDERS,
 } from "@/utils/schema/settings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ChevronDown, Loader2 } from "lucide-react";
-import { useCallback, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 export function UpdateAuthSocialProviderForm() {
   const utils = api.useUtils();

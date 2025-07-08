@@ -1,5 +1,17 @@
 "use client";
 
+import { useState } from "react";
+
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  Check,
+  ChevronsUpDown,
+  Loader2,
+  UserPlus,
+  XCircle,
+} from "lucide-react";
+import { toast } from "sonner";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,22 +42,13 @@ import { cn } from "@/lib/utils";
 import { authClient } from "@/server/auth/client";
 import { type SelectProduct } from "@/server/db/schema/products-schema";
 import { api } from "@/trpc/react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import {
-  Check,
-  ChevronsUpDown,
-  Loader2,
-  UserPlus,
-  XCircle,
-} from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
-interface AssignUserActionProps {
+type AssignUserActionProps = {
   data: SelectProduct[];
   onSuccess?: () => void;
-}
+};
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export default function AssignUserAction({
   data,
   onSuccess,
@@ -134,6 +137,7 @@ export default function AssignUserAction({
     },
   });
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const selectedProduct = data[0];

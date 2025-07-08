@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { type Table } from "@tanstack/react-table";
+import { X } from "lucide-react";
 
 import { DataTableViewOptions } from "@/app/(backend)/dashboard/_components/data-table-column-toggle";
 import { DataTableFacetedFilter } from "@/app/(backend)/dashboard/_components/data-table-faceted-filter";
@@ -6,12 +10,10 @@ import ActionMenu from "@/app/(backend)/dashboard/products/_components/action-me
 import ProductDialog from "@/app/(backend)/dashboard/products/_components/product-dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { type Table } from "@tanstack/react-table";
-import { X } from "lucide-react";
 
-interface DataTableToolbarProps<TData> {
+type DataTableToolbarProps<TData> = {
   table: Table<TData>;
-}
+};
 
 export function DataTableToolbar<TData>({
   table,

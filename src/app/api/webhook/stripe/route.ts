@@ -1,7 +1,10 @@
-import { api } from "@/trpc/server";
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { TRPCError } from "@trpc/server";
 import { NextResponse, type NextRequest } from "next/server";
 import Stripe from "stripe";
+
+import { api } from "@/trpc/server";
 
 export async function POST(request: NextRequest) {
   const webhookSecret =

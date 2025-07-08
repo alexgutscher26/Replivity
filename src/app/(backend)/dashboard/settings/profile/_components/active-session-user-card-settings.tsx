@@ -1,4 +1,15 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { formatDistance } from "date-fns";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { UAParser } from "ua-parser-js";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,14 +27,6 @@ import {
   type TerminateActiveSessionFormValues,
   TerminateActiveSessionSchema,
 } from "@/utils/schema/settings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { formatDistance } from "date-fns";
-import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { UAParser } from "ua-parser-js";
 
 export function ActiveSessionUserCardSettingsForm() {
   const router = useRouter();

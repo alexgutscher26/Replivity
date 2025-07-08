@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 // stripe
+
+import Stripe from "stripe";
 
 import { type User } from "@/server/auth/types";
 import { type SelectProduct } from "@/server/db/schema/products-schema";
 import { getBaseUrl } from "@/utils";
-import Stripe from "stripe";
+
 import { type PaymentProvider } from "./types";
 
 export class StripePaymentProvider implements PaymentProvider {
@@ -238,7 +241,7 @@ export class StripePaymentProvider implements PaymentProvider {
                 "switched_service",
                 "unused",
                 "other",
-              ] as const,
+              ],
             },
           },
         },

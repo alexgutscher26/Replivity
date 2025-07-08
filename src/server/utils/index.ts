@@ -1,4 +1,13 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use server";
+
+import { cache } from "react";
+
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import { createMistral } from "@ai-sdk/mistral";
+import { createOpenAI } from "@ai-sdk/openai";
+import { headers } from "next/headers";
+import { UTApi } from "uploadthing/server";
 
 import { auth } from "@/server/auth";
 import { db } from "@/server/db";
@@ -11,12 +20,7 @@ import {
   STORAGE_PROVIDERS_LIST,
   type StorageProviderSettings,
 } from "@/utils/schema/settings";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
-import { createMistral } from "@ai-sdk/mistral";
-import { createOpenAI } from "@ai-sdk/openai";
-import { headers } from "next/headers";
-import { cache } from "react";
-import { UTApi } from "uploadthing/server";
+
 import { PayPalPaymentProvider } from "./payments/paypal";
 import { StripePaymentProvider } from "./payments/stripe";
 import { type PaymentProvider } from "./payments/types";

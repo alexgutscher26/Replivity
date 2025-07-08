@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { api } from "@/trpc/react";
 import Image from "next/image";
+
+import { api } from "@/trpc/react";
 
 export default function ContentSection() {
   const [settings] = api.settings.site.useSuspenseQuery();

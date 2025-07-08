@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
 import { api } from "@/trpc/react";

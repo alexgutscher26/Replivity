@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { authClient } from "@/server/auth/client";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+import { useRouter } from "next/navigation";
+
+import { authClient } from "@/server/auth/client";
 
 export default function SignOutForm() {
   const [loading, setLoading] = useState(false);

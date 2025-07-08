@@ -1,9 +1,11 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { api } from "@/trpc/server";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { AuthCard } from "@daveyplate/better-auth-ui";
 import { authViewPaths } from "@daveyplate/better-auth-ui/server";
 import { Command } from "lucide-react";
 import Link from "next/link";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { api } from "@/trpc/server";
 
 export function generateStaticParams() {
   return Object.values(authViewPaths).map((pathname) => ({ pathname }));

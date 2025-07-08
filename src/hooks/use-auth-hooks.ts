@@ -1,5 +1,6 @@
-import { authClient } from "@/server/auth/client";
 import { createAuthHooks } from "@daveyplate/better-auth-tanstack";
+
+import { authClient } from "@/server/auth/client";
 
 export const {
   useSession,

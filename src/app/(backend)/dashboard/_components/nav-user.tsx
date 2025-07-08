@@ -1,5 +1,14 @@
 "use client";
 
+import {
+  BadgeCheck,
+  Bell,
+  ChevronsUpDown,
+  CreditCard,
+  Sparkles,
+} from "lucide-react";
+import Link from "next/link";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -18,17 +27,10 @@ import {
 } from "@/components/ui/sidebar";
 import { useSession } from "@/hooks/use-auth-hooks";
 import { avatarFallback } from "@/utils";
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  Sparkles,
-} from "lucide-react";
-import Link from "next/link";
+
 import NavLogout from "./nav-logout";
 
-export default function NavUser() {
+export default function NavUser(): JSX.Element {
   const { user } = useSession();
   const { isMobile } = useSidebar();
 

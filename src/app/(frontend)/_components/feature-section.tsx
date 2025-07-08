@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Activity, DraftingCompass, Mail, Zap } from "lucide-react";
 import Image from "next/image";
 

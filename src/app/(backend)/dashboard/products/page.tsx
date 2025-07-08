@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { Suspense } from "react";
+
 import ProductsTable from "@/app/(backend)/dashboard/products/_components/products-table";
 import { TableSkeleton } from "@/app/(backend)/dashboard/products/_components/table-skeleton";
 import { Separator } from "@/components/ui/separator";
 import { getSession } from "@/server/utils";
 import { api, HydrateClient } from "@/trpc/server";
-import { Suspense } from "react";
 
 export default async function ProductsPage() {
   const session = await getSession();

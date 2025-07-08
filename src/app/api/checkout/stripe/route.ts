@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 // route
+
+import { NextResponse, type NextRequest } from "next/server";
 
 import { api } from "@/trpc/server";
 import { getBaseUrl } from "@/utils";
-import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;

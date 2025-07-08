@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -25,7 +27,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { api } from "@/trpc/react";
-import { useState } from "react";
 
 const chartConfig = {
   facebook: {
@@ -46,7 +47,7 @@ export function UsageOverview({
   isSiteWide = false,
 }: {
   isSiteWide?: boolean;
-}) {
+}): JSX.Element {
   const [timeRange, setTimeRange] = useState("30");
   const [data] = api.generations.getDailyStats.useSuspenseQuery({
     days: parseInt(timeRange),

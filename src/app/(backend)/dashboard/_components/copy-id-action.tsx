@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Copy } from "lucide-react";
 
-interface CopyIdActionProps<TData extends { id: string }> {
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
+
+type CopyIdActionProps<TData extends { id: string }> = {
   data: TData[];
   name: string;
-}
+};
 
 export default function CopyIdAction<TData extends { id: string }>({
   data,

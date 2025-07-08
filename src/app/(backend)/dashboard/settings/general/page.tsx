@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { redirect } from "next/navigation";
+
 import { Separator } from "@/components/ui/separator";
 import { getSession } from "@/server/utils";
-import { redirect } from "next/navigation";
+
 import { MailConfigurationForm } from "../account/_components/mail-configuration-form";
+
 import { DownloadExtensionSettingsForm } from "./_components/download-extension-settings-form";
 import { TestAiConnectionStatusForm } from "./_components/test-ai-connection-status-form";
 import { TestPaymentProviderConnectionStatusForm } from "./_components/test-payment-provider-connection-status-form";
@@ -25,7 +29,7 @@ export default async function SettingsGeneralPage() {
     <div className="space-y-6">
       <div>
         <h3 className="text-lg font-medium">General</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Update your account settings. Set your preferred language and
           timezone.
         </p>

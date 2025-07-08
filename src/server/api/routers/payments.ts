@@ -1,3 +1,7 @@
+import { TRPCError } from "@trpc/server";
+import { and, eq, or } from "drizzle-orm";
+import { z } from "zod";
+
 import {
   createTRPCRouter,
   paymentProcedure,
@@ -8,9 +12,6 @@ import { type User } from "@/server/auth/types";
 import { billing } from "@/server/db/schema/billing-schema";
 import { products } from "@/server/db/schema/products-schema"; // Add this import
 import { getBaseUrl } from "@/utils";
-import { TRPCError } from "@trpc/server";
-import { and, eq, or } from "drizzle-orm";
-import { z } from "zod";
 
 export const paymentsRouter = createTRPCRouter({
   createSubscription: paymentProcedure

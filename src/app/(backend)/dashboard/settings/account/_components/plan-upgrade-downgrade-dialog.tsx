@@ -1,4 +1,14 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 "use client";
+
+import { useState } from "react";
+
+import { TRPCClientError } from "@trpc/client";
+import { Loader2, Package } from "lucide-react"; // Add this import
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -9,11 +19,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { api } from "@/trpc/react";
-import { TRPCClientError } from "@trpc/client";
-import { Loader2, Package } from "lucide-react"; // Add this import
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 export default function PlanUpgradeDowngradeDialog() {
   const utils = api.useUtils();

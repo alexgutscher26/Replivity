@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { redirect } from "next/navigation";
+
 import ActiveSubscriptions from "@/app/(backend)/dashboard/reports/_components/active-subscriptions";
 import PaidUsers from "@/app/(backend)/dashboard/reports/_components/paid-users";
 import { RecentSales } from "@/app/(backend)/dashboard/reports/_components/recent-sales";
@@ -6,7 +9,6 @@ import TotalRevenue from "@/app/(backend)/dashboard/reports/_components/total-re
 import TotalUsers from "@/app/(backend)/dashboard/reports/_components/total-users";
 import { Separator } from "@/components/ui/separator";
 import { getSession } from "@/server/utils";
-import { redirect } from "next/navigation";
 
 export default async function ReportsPage() {
   const session = await getSession();

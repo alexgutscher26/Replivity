@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { type Metadata } from "next";
+
 import { SidebarNav } from "@/app/(backend)/dashboard/settings/_components/sidebar-nav";
 import { Separator } from "@/components/ui/separator";
 import { getSession } from "@/server/utils";
-import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Forms",
@@ -33,9 +35,9 @@ const sidebarNavItems = [
   },
 ];
 
-interface SettingsLayoutProps {
+type SettingsLayoutProps = {
   children: React.ReactNode;
-}
+};
 
 export default async function SettingsLayout({
   children,

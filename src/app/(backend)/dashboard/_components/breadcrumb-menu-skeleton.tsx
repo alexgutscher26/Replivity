@@ -1,7 +1,7 @@
 import { Breadcrumb, BreadcrumbList } from "@/components/ui/breadcrumb";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function BreadcrumbMenuSkeleton() {
+export default function BreadcrumbMenuSkeleton(): JSX.Element {
   return (
     <Breadcrumb>
       <BreadcrumbList>

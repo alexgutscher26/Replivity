@@ -1,14 +1,15 @@
 "use client";
 
+import { MessagesSquare } from "lucide-react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { MessagesSquare } from "lucide-react";
 
 export default function TotalUsage({
   isSiteWide = false,
 }: {
   isSiteWide?: boolean;
-}) {
+}): JSX.Element {
   const [data] = api.usage.getTotalUsage.useSuspenseQuery({ isSiteWide });
 
   return (

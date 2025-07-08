@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 import { getBaseUrl } from "@/utils";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 export default function TestPage() {
   const router = useRouter();

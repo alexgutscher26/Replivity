@@ -1,9 +1,14 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { ThemeProvider } from "@/app/_components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 import { TRPCReactProvider } from "@/trpc/react";
+
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+
 import { Providers } from "./(frontend)/auth/providers";
 
 export const metadata: Metadata = {

@@ -1,13 +1,14 @@
+import { TRPCError } from "@trpc/server";
+import { generateText } from "ai";
+import { and, count, eq, gte, lte, or } from "drizzle-orm";
+import { z } from "zod";
+
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 import { billing } from "@/server/db/schema/billing-schema";
 import { generations } from "@/server/db/schema/generations-schema";
 import { usage } from "@/server/db/schema/usage-schema";
 import { getAIInstance } from "@/server/utils";
 import { generationsSchema } from "@/utils/schema/generations";
-import { TRPCError } from "@trpc/server";
-import { generateText } from "ai";
-import { and, count, eq, gte, lte, or } from "drizzle-orm";
-import { z } from "zod";
 
 export const generationRouter = createTRPCRouter({
   generate: protectedProcedure
@@ -337,13 +338,22 @@ Custom Prompt: ${customPrompt}`;
 
     // Aggregate results by month and source
     results.forEach((row) => {
-      if (row.createdAt) {
+      if (row.createdAt && row.source) {
         const month = row.createdAt.getMonth();
-        if (monthlyData[month]) {
-          if (row.source === "facebook") monthlyData[month].facebook++;
-          if (row.source === "twitter") monthlyData[month].twitter++;
-          if (row.source === "linkedin") monthlyData[month].linkedin++;
-          monthlyData[month].total++;
+        const monthData = monthlyData[month];
+        if (monthData) {
+          switch (row.source) {
+            case "facebook":
+              monthData.facebook++;
+              break;
+            case "twitter":
+              monthData.twitter++;
+              break;
+            case "linkedin":
+              monthData.linkedin++;
+              break;
+          }
+          monthData.total++;
         }
       }
     });
@@ -377,13 +387,13 @@ Custom Prompt: ${customPrompt}`;
           ),
         );
 
-      interface DailyStats {
+      type DailyStats = {
         date: string;
         facebook: number;
         twitter: number;
         linkedin: number;
         total: number;
-      }
+      };
 
       // Create a map of dates
       const dateMap = new Map<string, DailyStats>();

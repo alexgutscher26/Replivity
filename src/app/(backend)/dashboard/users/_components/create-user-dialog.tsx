@@ -1,4 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { useQueryClient } from "@tanstack/react-query";
+import { Loader2, PlusCircle } from "lucide-react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,10 +29,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { authClient } from "@/server/auth/client";
-import { useQueryClient } from "@tanstack/react-query";
-import { Loader2, PlusCircle } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
 export default function CreateUserDialog() {
   const [open, setOpen] = useState(false);

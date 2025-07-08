@@ -1,3 +1,5 @@
+import { jsonb, timestamp, uuid } from "drizzle-orm/pg-core";
+
 import { createTable } from "@/server/db/config";
 import {
   accountSettingsSchema,
@@ -5,7 +7,6 @@ import {
   type AccountSettingsFormValues,
   type GeneralSettings,
 } from "@/utils/schema/settings";
-import { jsonb, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const settings = createTable("settings", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -17,12 +18,12 @@ export const settings = createTable("settings", {
     .$type<AccountSettingsFormValues>(),
   billing: jsonb("billing").default({}).$type<{
     currency: string;
-    subscriptionPlans: {
+    subscriptionPlans: Array<{
       id: string;
       name: string;
       price: number;
       interval: "month" | "year";
-    }[];
+    }>;
     taxSettings: {
       enabled: boolean;
       rate?: number;

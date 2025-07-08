@@ -1,5 +1,4 @@
-import { type User } from "@/server/auth/types";
-import { type SelectProduct } from "@/server/db/schema/products-schema";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import {
   ApiError,
   CheckoutPaymentIntent,
@@ -15,6 +14,10 @@ import {
   type OAuthToken,
   type OrderRequest,
 } from "@paypal/paypal-server-sdk";
+
+import { type User } from "@/server/auth/types";
+import { type SelectProduct } from "@/server/db/schema/products-schema";
+
 import {
   type PayPalSubscriptionPlan,
   type PayPalSubscriptionResponse,
@@ -546,7 +549,7 @@ export class PayPalPaymentProvider implements PaymentProvider {
     const webhookData = (await webhook.json()) as {
       id: string;
       url: string;
-      event_types: { name: string; description: string }[];
+      event_types: Array<{ name: string; description: string }>;
     };
 
     return {

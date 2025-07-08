@@ -1,4 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -24,15 +30,11 @@ import {
   supportFormSchema,
   type SupportFormValues,
 } from "@/utils/schema/settings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
-interface SupportDialogProps {
+type SupportDialogProps = {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-}
+};
 
 export default function SupportDialog({
   open,

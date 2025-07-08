@@ -1,14 +1,15 @@
 "use client";
 
+import { Facebook } from "lucide-react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { Facebook } from "lucide-react";
 
 export default function FacebookUsage({
   isSiteWide = false,
 }: {
   isSiteWide?: boolean;
-}) {
+}): JSX.Element {
   const [data] = api.generations.getFacebookStats.useSuspenseQuery({
     isSiteWide,
   });

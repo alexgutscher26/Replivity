@@ -1,5 +1,7 @@
-import { authClient } from "@/server/auth/client";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useQuery } from "@tanstack/react-query";
+
+import { authClient } from "@/server/auth/client";
 
 export function useListSessions() {
   return useQuery({

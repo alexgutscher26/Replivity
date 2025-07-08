@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,8 +14,6 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { api } from "@/trpc/react";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
 
 export default function DownloadExtensionForm() {
   const form = useForm();

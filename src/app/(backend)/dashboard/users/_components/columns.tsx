@@ -1,3 +1,6 @@
+import { type ColumnDef } from "@tanstack/react-table";
+import { format, formatDistanceToNow } from "date-fns";
+
 import { DataTableColumnHeader } from "@/app/(backend)/dashboard/_components/data-table-column-header";
 import ActionMenu from "@/app/(backend)/dashboard/users/_components/action-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -6,11 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { avatarFallback } from "@/utils";
 
-import { type ColumnDef } from "@tanstack/react-table";
-import { type User } from "better-auth";
-import { format, formatDistanceToNow } from "date-fns";
+import { type User } from "./users-table";
 
-export const columns: ColumnDef<User>[] = [
+export const columns: Array<ColumnDef<User>> = [
   {
     id: "select",
     header: ({ table }) => (

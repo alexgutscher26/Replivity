@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { api } from "@/trpc/react";
 import { ArrowRight, Chrome, Flame } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import { api } from "@/trpc/react";
 
 export default function HeroSection() {
   const [settings] = api.settings.site.useSuspenseQuery();
@@ -24,7 +26,7 @@ export default function HeroSection() {
                   New
                 </span>
                 <span className="text-sm">No credit card required</span>
-                <span className="block h-4 w-px bg-(--color-border)"></span>
+                <span className="block h-4 w-px bg-(--color-border)" />
 
                 <ArrowRight className="size-4" />
               </Link>

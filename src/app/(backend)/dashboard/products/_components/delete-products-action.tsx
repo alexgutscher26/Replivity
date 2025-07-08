@@ -1,4 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { Loader2, Trash2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { type ActionMenuProps } from "@/app/(backend)/dashboard/products/_components/action-menu";
 import { Button } from "@/components/ui/button";
@@ -14,10 +21,6 @@ import {
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Form } from "@/components/ui/form";
 import { api } from "@/trpc/react";
-import { Loader2, Trash2 } from "lucide-react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 export default function DeleteProductsAction<TData>({
   table,

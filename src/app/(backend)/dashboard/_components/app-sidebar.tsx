@@ -1,5 +1,19 @@
 "use client";
 
+import { type ComponentProps } from "react";
+
+import {
+  ChartArea,
+  Command,
+  FileChartLine,
+  LayoutDashboard,
+  LifeBuoy,
+  PieChart,
+  Settings2,
+  Users2,
+} from "lucide-react";
+import Link from "next/link";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Sidebar,
@@ -12,18 +26,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useSession } from "@/hooks/use-auth-hooks";
 import { api } from "@/trpc/react";
-import {
-  ChartArea,
-  Command,
-  FileChartLine,
-  LayoutDashboard,
-  LifeBuoy,
-  PieChart,
-  Settings2,
-  Users2,
-} from "lucide-react";
-import Link from "next/link";
-import { type ComponentProps } from "react";
+
 import NavMain from "./nav-main";
 import NavSecondary from "./nav-secondary";
 import NavUser from "./nav-user";
@@ -77,7 +80,7 @@ const data = {
 
 export default function AppSidebar({
   ...props
-}: ComponentProps<typeof Sidebar>) {
+}: ComponentProps<typeof Sidebar>): JSX.Element {
   const { user } = useSession();
   const [siteSettings] = api.settings.site.useSuspenseQuery();
   const [currentPlan] = api.payments.getCurrentBilling.useSuspenseQuery();

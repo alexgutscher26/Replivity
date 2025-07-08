@@ -1,13 +1,14 @@
+import { TRPCError } from "@trpc/server";
+import { and, eq, gte, lte, or } from "drizzle-orm";
+import type Stripe from "stripe";
+import { z } from "zod";
+
 import {
   adminProcedure,
   createTRPCRouter,
   publicProcedure,
 } from "@/server/api/trpc";
 import { billing, type CreateBilling } from "@/server/db/schema/billing-schema";
-import { TRPCError } from "@trpc/server";
-import { and, eq, gte, lte, or } from "drizzle-orm";
-import type Stripe from "stripe";
-import { z } from "zod";
 
 // Common subscription shape that works for both Stripe and PayPal
 const subscriptionInputSchema = z.discriminatedUnion("provider", [
@@ -329,8 +330,9 @@ export const billingsRouter = createTRPCRouter({
     results.forEach((row) => {
       if (row.createdAt) {
         const month = row.createdAt.getMonth();
-        if (monthlyData[month]) {
-          monthlyData[month].total += Number(row.amount ?? 0);
+        const monthData = monthlyData[month];
+        if (monthData) {
+          monthData.total += Number(row.amount ?? 0);
         }
       }
     });

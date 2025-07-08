@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { CreditCard } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { CreditCard } from "lucide-react";
 
 export default function ActiveSubscriptions() {
   const [data] = api.billings.getTotalSubscriptions.useSuspenseQuery();

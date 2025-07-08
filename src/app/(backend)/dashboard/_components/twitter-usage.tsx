@@ -1,14 +1,15 @@
 "use client";
 
+import { Twitter } from "lucide-react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { Twitter } from "lucide-react";
 
 export default function TwitterUsage({
   isSiteWide = false,
 }: {
   isSiteWide?: boolean;
-}) {
+}): JSX.Element {
   const [data] = api.generations.getTwitterStats.useSuspenseQuery({
     isSiteWide,
   });

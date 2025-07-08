@@ -1,4 +1,3 @@
-import { createTable } from "@/server/db/config";
 import { relations } from "drizzle-orm";
 import {
   boolean,
@@ -9,6 +8,9 @@ import {
   timestamp,
   uuid,
 } from "drizzle-orm/pg-core";
+
+import { createTable } from "@/server/db/config";
+
 import { user } from "./auth-schema";
 import { products } from "./products-schema";
 

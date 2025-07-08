@@ -1,4 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,10 +16,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { api } from "@/trpc/react";
-import { Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+
 import PlanUpgradeDowngradeDialog from "./plan-upgrade-downgrade-dialog";
 
 export default function CurrentPlanForm() {

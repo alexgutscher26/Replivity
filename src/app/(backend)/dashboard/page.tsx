@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Separator } from "@/components/ui/separator";
+
 import FacebookUsage from "./_components/facebook-usage";
 import LinkedinUsage from "./_components/linkedin-usage";
 import TotalUsage from "./_components/total-usage";

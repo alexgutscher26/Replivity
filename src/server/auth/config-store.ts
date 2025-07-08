@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { type AuthSettings } from "@/utils/schema/settings";
 
 class ConfigStore {

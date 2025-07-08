@@ -1,4 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { useQueryClient } from "@tanstack/react-query";
+import { Loader2, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
 import { type ActionMenuProps } from "@/app/(backend)/dashboard/users/_components/action-menu";
 import { Button } from "@/components/ui/button";
@@ -14,10 +21,6 @@ import {
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { useSession } from "@/hooks/use-auth-hooks";
 import { authClient } from "@/server/auth/client";
-import { useQueryClient } from "@tanstack/react-query";
-import { Loader2, Trash2 } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 
 export default function DeleteUsersAction<TData>({
   table,

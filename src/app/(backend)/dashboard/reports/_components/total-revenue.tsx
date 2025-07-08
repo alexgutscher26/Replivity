@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { DollarSign } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
 import { formatCurrency } from "@/utils";
-import { DollarSign } from "lucide-react";
 
 export default function TotalRevenue() {
   const [data] = api.billings.getTotalSales.useSuspenseQuery();

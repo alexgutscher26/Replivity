@@ -1,4 +1,20 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import {
+  type ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  type SortingState,
+  useReactTable,
+  type VisibilityState,
+} from "@tanstack/react-table";
 
 import { DataTablePagination } from "@/app/(backend)/dashboard/_components/data-table-pagination";
 import { columns } from "@/app/(backend)/dashboard/products/_components/columns";
@@ -12,24 +28,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { api } from "@/trpc/react";
-import {
-  type ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFacetedUniqueValues,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  type SortingState,
-  useReactTable,
-  type VisibilityState,
-} from "@tanstack/react-table";
-import { useState } from "react";
 
-export interface TableMeta {
+export type TableMeta = {
   searchValue: string;
   setSearchValue: (value: string) => void;
-}
+};
 
 export default function ProductsTable() {
   const [products] = api.products.all.useSuspenseQuery();

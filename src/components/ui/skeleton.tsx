@@ -1,4 +1,5 @@
-import { cn } from "@/lib/utils"
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { cn } from "@/lib/utils";
 
 function Skeleton({
   className,
@@ -6,10 +7,10 @@ function Skeleton({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("animate-pulse rounded-md bg-primary/10", className)}
+      className={cn("bg-primary/10 animate-pulse rounded-md", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Skeleton }
+export { Skeleton };

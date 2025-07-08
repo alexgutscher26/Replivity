@@ -1,3 +1,5 @@
+import { type ColumnDef } from "@tanstack/react-table";
+
 import { DataTableColumnHeader } from "@/app/(backend)/dashboard/_components/data-table-column-header";
 import ActionMenu from "@/app/(backend)/dashboard/products/_components/action-menu";
 import { Badge } from "@/components/ui/badge";
@@ -11,9 +13,8 @@ import {
 import { type SelectProduct } from "@/server/db/schema/products-schema";
 import { api } from "@/trpc/react";
 import { type ProductType } from "@/utils/schema/products";
-import { type ColumnDef } from "@tanstack/react-table";
 
-export const columns: ColumnDef<SelectProduct>[] = [
+export const columns: Array<ColumnDef<SelectProduct>> = [
   {
     id: "select",
     header: ({ table }) => (

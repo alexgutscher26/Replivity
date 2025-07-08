@@ -1,13 +1,16 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useState } from "react";
+
+import { Loader2, UserPlus } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { type ActionMenuProps } from "@/app/(backend)/dashboard/users/_components/action-menu";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { useSession } from "@/hooks/use-auth-hooks";
 import { authClient } from "@/server/auth/client";
-import { Loader2, UserPlus } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 export default function ImpersonateUserAction<TData>({
   users,

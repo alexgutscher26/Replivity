@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { type Column } from "@tanstack/react-table";
 import { Check, PlusCircle } from "lucide-react";
 
@@ -20,10 +21,10 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
-interface DataTableFacetedFilterProps<TData, TValue> {
+type DataTableFacetedFilterProps<TData, TValue> = {
   column?: Column<TData, TValue>;
   title?: string;
-}
+};
 
 export function DataTableFacetedFilter<TData, TValue>({
   column,

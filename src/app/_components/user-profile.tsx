@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
 
 import { type User } from "better-auth";
 import Image from "next/image";
+
 import SignOutForm from "./signout-form";
 
 export default function UserProfile({ user }: { user: User }) {

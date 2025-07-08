@@ -1,4 +1,13 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Command as CommandPrimitive } from "cmdk";
+import { Loader2, X } from "lucide-react";
+import { type ControllerRenderProps, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -36,12 +45,6 @@ import {
   type WebhookForPaymentProvider,
   webhookForPaymentProviderSchema,
 } from "@/utils/schema/settings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Command as CommandPrimitive } from "cmdk";
-import { Loader2, X } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { type ControllerRenderProps, useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 // Add type for webhook events
 type WebhookEvent = StripeWebhookEvent | PaypalWebhookEvent;

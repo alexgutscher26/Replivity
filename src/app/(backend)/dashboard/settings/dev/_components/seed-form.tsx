@@ -1,4 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,10 +18,6 @@ import {
 } from "@/components/ui/form";
 import { api } from "@/trpc/react";
 import { devFormSchema, type DevFormValues } from "@/utils/schema/settings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
 
 export default function SeedGeneralForm() {
   const utils = api.useUtils();

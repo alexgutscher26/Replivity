@@ -1,4 +1,4 @@
-export interface PayPalSubscriptionResponse {
+export type PayPalSubscriptionResponse = {
   id: string;
   status:
     | "APPROVAL_PENDING"
@@ -62,9 +62,9 @@ export interface PayPalSubscriptionResponse {
     rel: string;
     method: string;
   }>;
-}
+};
 
-export interface PayPalSubscriptionPlan {
+export type PayPalSubscriptionPlan = {
   id: string;
   product_id: string;
   name: string;
@@ -100,4 +100,4 @@ export interface PayPalSubscriptionPlan {
     inclusive: boolean;
   };
   quantity_supported: boolean;
-}
+};

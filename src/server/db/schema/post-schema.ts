@@ -1,6 +1,8 @@
 import { sql } from "drizzle-orm";
 import { index, integer, timestamp, varchar } from "drizzle-orm/pg-core";
+
 import { createTable } from "../config";
+
 import { user } from "./auth-schema";
 
 /**

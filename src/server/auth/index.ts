@@ -1,12 +1,14 @@
-import { configStore } from "@/server/auth/config-store";
-import { getAuthSettingsFromDB } from "@/server/auth/creds";
-import { db } from "@/server/db";
-import { isFirstUser } from "@/server/utils";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { type SocialProvider } from "@daveyplate/better-auth-ui";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { admin } from "better-auth/plugins";
+
+import { configStore } from "@/server/auth/config-store";
+import { getAuthSettingsFromDB } from "@/server/auth/creds";
+import { db } from "@/server/db";
+import { isFirstUser } from "@/server/utils";
 
 // Initialize auth settings before creating the auth instance
 await getAuthSettingsFromDB();

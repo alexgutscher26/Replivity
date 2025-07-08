@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 "use client";
+
+import { Users } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { api } from "@/trpc/react";
-import { Users } from "lucide-react";
 
 export default function TotalUsers() {
   const [data] = api.user.getTotalUsers.useSuspenseQuery();
